@@ -1,0 +1,41 @@
+<div class="jumbotron">
+    <h3>REGISTRATION  FORM</h3>
+</div><br><br>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<div>
+    <label>Name :
+    <input type="text" formControlName="name">
+    </label> <br><br>
+
+    <label> Email :
+            <input type="text" formControlName="email">
+            </label><br><br>
+
+            <label>Mobile :
+                    <input type="text" formControlName="mobile">
+                    </label><br><br>
+
+                    <label>Password :
+                            <input type="password" formControlName="password">
+                            </label><br><br>
+
+                            <label>Confirm Password :
+                                    <input type="password" formControlName="confirmpassword">
+                                    </label><br><br>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">SUBMIT</button>
+
+
+</form>
+
+<h1 *ngIf="isSubmitted && !isError">
+        {{msgServer["name"]}} registed successfully
+</h1>
+
+<h1 *ngIf="isSubmitted && isError">
+        Try later.
+</h1>
+
+
+

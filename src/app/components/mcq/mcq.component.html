@@ -1,0 +1,27 @@
+<h1 class="jumbotron text-center">Questions</h1>
+<div class="container text-center">
+  <form #mcqForm="ngForm" class="container bg-white" (ngSubmit)="saveForm(mcqForm)" class="demoForm" id="mcqForm">
+  <div >
+    <label>Topic:</label>
+    <select (change)="getMCQDetails($event)">
+      <option  *ngFor="let questions of qlist" [value]="questions.topic">{{questions.topic}}</option>
+    </select>
+  </div>
+  <div *ngFor="let topic of selectedtopic; let i=index;">
+   <h5><pre>Questions:{{topic.noofques}}       Marks:{{topic.mark}}        Time:{{topic.duration}}  </pre></h5>
+     <!-- <h5>Question No {{topic.questions[i].qno}}</h5>-->
+  </div>
+   <div *ngFor="let ques of selectedquestions; let i=index; ">
+    <h5>Question No:{{ques.qno}} : Question:{{ques.question}} </h5>
+        
+        <input  id="opt0" type="hidden" name ="{{ques.qno}}" value="{{ques.qno}}" ngModel><br>
+        <input  id="opt1" type="radio" name ="{{ques.qno}}" value="{{ques.options.one}}" ngModel>{{ques.options.one}}<br>
+        <input id ="opt2" type="radio"  name = "{{ques.qno}}" value="{{ques.options.two}}"  ngModel>{{ques.options.two}}<br>
+        <input id ="opt3" type="radio"  name = "{{ques.qno}}" value="{{ques.options.three}}"  ngModel>{{ques.options.three}}<br>
+        <input id ="opt4" type="radio"  name = "{{ques.qno}}" value="{{ques.options.four}}" ngModel>{{ques.options.four}}<br><br>
+      </div>
+      <button>Submit</button>
+</form>  
+</div>
+  
+

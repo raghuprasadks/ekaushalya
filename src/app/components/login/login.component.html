@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+        <label>Email</label><input type="text" name="email" formControlName="email"><br>
+        <label>Password</label><input type="password" name="password" formControlName="password"><br>
+        <button>Sign In</button>
+
+
+    </form>
+</div>
+<div>
+    <h1 *ngIf="isError">In correct Login Credentials</h1>
+</div>
+
+
