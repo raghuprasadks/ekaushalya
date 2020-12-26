@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = process.env.port || 8082;
+const port = process.env.PORT || 8080;
 
 //app.use('/',express.static('dist/mean-contactlist'));
 
