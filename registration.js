@@ -2,7 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/ekaushalya',{ useNewUrlParser: true });
+//mongoose.connect('mongodb://localhost/ekaushalya',{ useNewUrlParser: true });
+mongoose.connect('mongodb+srv://kaushalyadb2020:kaushalya@2020@cluster0.mntsh.mongodb.net/ekaushalya?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
+var db = mongoose.connection;
+db.once('open', () => {
+    console.log('mongoDB database connection established');
+  })
+ .on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 var userSchema = mongoose.Schema({
    name: String,
    mobile: Number,
